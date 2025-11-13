@@ -8,7 +8,7 @@ spark = SparkSession.builder \
 
 # %%
 # Load the Parquet file into a DataFrame
-file_path = "data/yellow_tripdata_2023-12.parquet"
+file_path = "data/yellow_tripdata_2025-08.parquet"
 yellow_tripdata_df = spark.read.parquet(file_path)
 
 # %%
@@ -39,8 +39,8 @@ import pyarrow.parquet as pq
 from google.cloud import storage
 import io
 
-PROJECT_ID = "nyc-yellow-trips"
-BUCKET_NAME = f"{PROJECT_ID}-data-buckets"
+PROJECT_ID = "vde-datawarehouse-477514"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-data-buck"
 GCS_FOLDER = "dataset/trips/"
 
 storage_client = storage.Client()
@@ -59,5 +59,9 @@ def inspect_parquet_schema(file_name):
 
 # Remplace par un fichier qui pose problème
 inspect_parquet_schema("yellow_tripdata_2024-04.parquet")
+
+# %%
+inspect_parquet_schema("yellow_tripdata_2023-06.parquet")
+
 
 # %%

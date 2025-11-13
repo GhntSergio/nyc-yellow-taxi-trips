@@ -4,7 +4,7 @@ from google.cloud.exceptions import NotFound
 client = bigquery.Client()
 
 datasets_name = ['raw_yellowtrips', 'transformed_data', 'views_fordashboard']
-location = 'US'
+location = 'EU'
 
 
 def create_bigquery_dataset(dataset_name):
