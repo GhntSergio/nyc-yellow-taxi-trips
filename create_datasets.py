@@ -1,3 +1,4 @@
+# %%
 from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 
@@ -25,6 +26,7 @@ def create_bigquery_dataset(dataset_name):
         print("Created dataset {}.{}".format(
             client.project, dataset.dataset_id))
 
-
+# %%
 for name in datasets_name:
     create_bigquery_dataset(name)
+# %%

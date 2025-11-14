@@ -9,7 +9,7 @@ PROJECT_ID = "vde-datawarehouse-477514"
 RAW_TABLE = f"{PROJECT_ID}.raw_yellowtrips.trips"
 TRANSFORMED_TABLE = f"{PROJECT_ID}.transformed_data.cleaned_and_filtered"
 GCS_LOG_FOLDER = "from-git/logs/"
-BUCKET_NAME = f"nyc-yellow-taxi-trips-data-buck"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-bucket"
 
 # Initialize BigQuery and GCS clients
 client = bigquery.Client(project=PROJECT_ID, location="EU")
