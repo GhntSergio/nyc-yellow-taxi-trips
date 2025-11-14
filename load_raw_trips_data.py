@@ -7,7 +7,7 @@ from datetime import UTC  # Import UTC explicitly
 
 # Set project-specific variables
 PROJECT_ID = "vde-datawarehouse-477514"
-BUCKET_NAME = f"nyc-yellow-taxi-trips-data-buck"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-bucket"
 GCS_FOLDER = "dataset/trips/"
 GCS_LOG_FOLDER = "from-git/logs/"
 TABLE_ID = f"{PROJECT_ID}.raw_yellowtrips.trips"

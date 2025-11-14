@@ -40,7 +40,7 @@ from google.cloud import storage
 import io
 
 PROJECT_ID = "vde-datawarehouse-477514"
-BUCKET_NAME = f"nyc-yellow-taxi-trips-data-buck"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-bucket"
 GCS_FOLDER = "dataset/trips/"
 
 storage_client = storage.Client()

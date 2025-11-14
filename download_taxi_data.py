@@ -8,7 +8,7 @@ from datetime import UTC  # Import UTC explicitly
 
 # Pproject ID and Bucket name
 PROJECT_ID = "nyc-yellow-trips"
-BUCKET_NAME = f"{PROJECT_ID}-data-buckets"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-bucket"
 GCS_FOLDER = "dataset/trips/"
 GCS_LOG_FOLDER = "from-git/logs/"
 
@@ -42,7 +42,7 @@ def download_histo_data():
     current_year = datetime.now().year
 
     try:
-        for year in range(2020, current_year + 1):
+        for year in range(2022, current_year + 1):
             for month in range(1, 13):
                 file_name = f"yellow_tripdata_{year}-{month:02d}.parquet"
                 gcs_path = f"{GCS_FOLDER}{file_name}"
@@ -57,7 +57,11 @@ def download_histo_data():
                     response = requests.get(download_url, stream=True)
 
                     if response.status_code == 200:
-                        upload_to_gcs(BUCKET_NAME, gcs_path, response.content)
+                        #upload_to_gcs(BUCKET_NAME, gcs_path, response.content)
+                        bucket = storage_client.bucket(BUCKET_NAME)
+                        blob = bucket.blob(gcs_path)
+                        blob.upload_from_string(response.content)
+                        logging.info(f"{file_name} uploaded to GCS successfully at {gcs_path}!"),
                     elif response.status_code == 404:
                         logging.warning(f"File {file_name} not found on source, skipping...")
                     else:

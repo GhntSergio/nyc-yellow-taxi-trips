@@ -6,7 +6,7 @@ import gcsfs
 #%%
 # Set project-specific variables
 PROJECT_ID = "vde-datawarehouse-477514"
-BUCKET_NAME = f"nyc-yellow-taxi-trips-data-buck"
+BUCKET_NAME = f"nyc-yellow-taxi-trips-bucket"
 GCS_FOLDER = "dataset/trips/"
 
 #Iitilize BQ, GCS Clients and GCS file system
